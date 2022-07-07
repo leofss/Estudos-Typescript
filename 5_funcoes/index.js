@@ -59,3 +59,25 @@ function Soma(n, m = 10) {
 }
 console.log(Soma(10));
 console.log(Soma(10, 83));
+//8 - unknown 
+function DoSomething(x) {
+    if (Array.isArray(x)) {
+        console.log(x[0]);
+    }
+    else if (typeof x === "number") {
+        console.log("X é um numero");
+    }
+}
+DoSomething([1, 2, 3]);
+DoSomething(5);
+//9 - rest operator
+function SumAll(...n) {
+    return n.reduce((number, sum) => sum + number);
+}
+console.log(SumAll(1, 2, 4, 5, 7, 8));
+//10 - destructuring como parametro
+function ProdDetais({ name, price }) {
+    return `Produto ${name} custa ${price}`;
+}
+const shirt = { name: "Camisa", price: 40 };
+console.log(ProdDetais(shirt));
