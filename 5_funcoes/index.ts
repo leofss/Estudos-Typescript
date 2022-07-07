@@ -24,3 +24,53 @@ function PreGreeting(f: (name : string, id : number) => UserInfo, UserName : str
 }
 
 PreGreeting(Greeting, "Leonardo", 10)
+
+//3 - generic function 
+
+function FirstElement<T>(arr : T[]) : T {
+    return arr[0]
+}
+
+console.log(FirstElement([1, 2 ,3]))
+console.log(FirstElement(["A", "B"]))
+console.log(FirstElement([1, 2 ,"A"]))
+
+
+function MergeObj<U, T>(obj1 : U, obj2 : T) {
+    return{
+        //... pega tudo em um objeto
+        ...obj1,
+        ...obj2
+    }
+}
+
+const NewObj = MergeObj({name : "Leonardo"}, {age : 30, job : "Programmer"})
+
+console.log(NewObj)
+
+//4 - constraints 
+type Cmp = string | number
+function BigNumber<T extends Cmp >(a : T, b : T): T {
+    let biggest : T
+    
+    if(+a > +b){
+        biggest = a
+    }
+    else{
+        biggest = b
+    }
+
+    return biggest
+}
+
+console.log(BigNumber(5, 10))
+console.log(BigNumber("5", "1"))
+
+//5 - especificando tipo de argumento 
+
+function MergeArrays<T>(arr1 : T[], arr2 : T[]) {
+    return arr1.concat(arr2)
+}
+
+console.log(MergeArrays([1, 2, 3], [1, 2, 3]))
+console.log(MergeArrays<number | string>([1, 2, 3], ["a", "b"]))
