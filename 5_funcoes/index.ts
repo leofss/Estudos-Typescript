@@ -74,3 +74,26 @@ function MergeArrays<T>(arr1 : T[], arr2 : T[]) {
 
 console.log(MergeArrays([1, 2, 3], [1, 2, 3]))
 console.log(MergeArrays<number | string>([1, 2, 3], ["a", "b"]))
+
+//parâmetros opcionais 
+
+function ModernGreeting(name : string, greet? : string ) {
+    if(greet){
+        return `Olá ${greet} ${name}, tudo bem?`
+    }
+
+    return `Olá ${name}`
+}
+
+console.log(ModernGreeting("Matheus"))
+console.log(ModernGreeting("Matheus", "Dr."))
+
+//parâmetro default
+
+function Soma(n:number, m = 10) {
+    return n + m
+}
+
+console.log(Soma(10))
+
+console.log(Soma(10, 83))

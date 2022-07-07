@@ -44,3 +44,18 @@ function MergeArrays(arr1, arr2) {
 }
 console.log(MergeArrays([1, 2, 3], [1, 2, 3]));
 console.log(MergeArrays([1, 2, 3], ["a", "b"]));
+//parâmetros opcionais 
+function ModernGreeting(name, greet) {
+    if (greet) {
+        return `Olá ${greet} ${name}, tudo bem?`;
+    }
+    return `Olá ${name}`;
+}
+console.log(ModernGreeting("Matheus"));
+console.log(ModernGreeting("Matheus", "Dr."));
+//parâmetro default
+function Soma(n, m = 10) {
+    return n + m;
+}
+console.log(Soma(10));
+console.log(Soma(10, 83));
