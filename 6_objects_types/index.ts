@@ -49,3 +49,59 @@ let coords : CoordObj = {
 coords.z = 20
 
 console.log(coords)
+
+//4 - extending interface
+
+interface Human{
+    name : string
+    age : number
+}
+
+interface Super extends Human{
+    superpw : string[]
+}
+
+const goku : Super = {
+    name : "Goku",
+    age : 50,
+    superpw : ["Kamekameha", "Genki Dama"]
+}
+
+console.log(goku)
+
+//intersection types
+
+interface Personagem{
+    name : string
+}
+
+interface Arma{
+    type : string
+    calibre : number
+}
+
+type HumanWithGun = Personagem & Arma
+
+const arnold : HumanWithGun = {
+    name : "arnold",
+    type : "Shotgun",
+    calibre: 12 
+}
+
+console.log(arnold)
+
+//read only array (pode ser modificada apenas por métodos)
+
+let MyArray : ReadonlyArray<string> = ["Maçã", "Laranja", "Banana"]
+
+//MyArray[3] = "mamão"
+
+MyArray.forEach((item) => {
+    console.log("Fruta: " + item)
+})
+
+MyArray = MyArray.map((item) =>{
+    return `Fruta map: ${item}`
+})
+
+console.log(MyArray)
