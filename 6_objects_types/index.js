@@ -44,3 +44,10 @@ MyArray = MyArray.map((item) => {
     return `Fruta map: ${item}`;
 });
 console.log(MyArray);
+const User = ["Leonardo", 18];
+console.log(User);
+//Tuplas com read only
+function ShowNumbers(numbers) {
+    console.log(numbers[0]);
+}
+ShowNumbers([1, 2]);

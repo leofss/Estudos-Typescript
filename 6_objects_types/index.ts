@@ -105,3 +105,20 @@ MyArray = MyArray.map((item) =>{
 })
 
 console.log(MyArray)
+
+
+//Tuplas
+
+type NameAndAge = [string, number]
+
+const User : NameAndAge = ["Leonardo", 18]
+
+console.log(User)
+
+//Tuplas com read only
+
+function ShowNumbers(numbers:readonly [number, number]) {
+    console.log(numbers[0])
+}
+
+ShowNumbers([1, 2])
