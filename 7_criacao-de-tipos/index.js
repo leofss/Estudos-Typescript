@@ -43,3 +43,5 @@ function ShowKm(km) {
     return `Kilometragem de ${km}`;
 }
 console.log(ShowKm(NewTruck.km));
+const testing = "some text";
+console.log(testing);

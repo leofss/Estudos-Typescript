@@ -86,6 +86,26 @@ function ShowKm(km:Km) {
 
 console.log(ShowKm(NewTruck.km))
 
+//8 - conditional types
+
+interface Name {
+    ShowName() : string
+}
+
+//? se for verdade string, else : boolean
+type Show = Name extends {ShowName() : string} ? string : boolean
+
+//9 - template literals type
+
+type testeA = "text"
+
+type CustomType = `some ${testeA}`
+
+const testing : CustomType = "some text"
+
+console.log(testing)
+
+
 
 
 
