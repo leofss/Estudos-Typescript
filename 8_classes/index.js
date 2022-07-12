@@ -1,5 +1,5 @@
 "use strict";
-//1 - campos em class
+//1 - campos em classe
 class User {
 }
 const Leo = new User();
@@ -24,3 +24,43 @@ class Car {
 const car = new Car("Fusca");
 car.name = "Uno";
 console.log(car);
+//4 - heranca e super
+class Machine {
+    constructor(name) {
+        this.name = name;
+    }
+}
+const Normal = new Machine("trator");
+class KillerMachine extends Machine {
+    constructor(name, guns) {
+        super(name);
+        this.guns = guns;
+    }
+}
+const Alterado = new KillerMachine("Carro do 007", 10);
+console.log(Normal);
+console.log(Alterado);
+//5 - metodos
+class Dwarf {
+    constructor(name) {
+        this.name = name;
+    }
+    greeting() {
+        console.log(`Olá estranho meu nome é ${this.name}`);
+    }
+}
+const Jim = new Dwarf("Joao");
+console.log(Jim.name);
+Jim.greeting();
+//6 - getters
+class Aluno {
+    constructor(name, surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+    get FullName() {
+        return `${this.name} ${this.surname}`;
+    }
+}
+const leo = new Aluno("Leonardo", "Fernandes");
+console.log(leo.FullName);
