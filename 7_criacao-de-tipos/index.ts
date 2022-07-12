@@ -34,3 +34,58 @@ const MyPen : Pen = {name : "Bic", wheels : false, engine : false, color : "Azul
 
 console.log(MyCar)
 console.log(MyPen)
+
+//4 - type parameters
+
+function GetSomeKey<T, K extends keyof T>(obj : T, key : K){
+    return `A chave esta presente no objeto e tem valor de ${obj[key]}`
+}
+
+const server = {
+    hd : '2TB',
+    ram : '5'
+}
+
+console.log(GetSomeKey(server, 'ram'))
+
+//5 - keyof type operator 
+
+type Carac = {name : string, age : number, DriverLic : boolean}
+
+type C = keyof Carac
+
+function ShowName(obj:Carac, key : C): string {
+    return `${obj[key]}`
+}
+
+const Me : Carac = {
+    name : "Leonardo",
+    age : 18,
+    DriverLic : false
+}
+
+console.log(ShowName(Me,'name'))
+console.log(ShowName(Me,'age'))
+
+//6 - indexed access type
+
+type Truck = {km : number, kg : number, desc : string}
+
+type Km = Truck["km"]
+
+const NewTruck = {
+    km : 5000,
+    kg : 1000,
+    desc : "Pequeno"
+}
+
+function ShowKm(km:Km) {
+    return `Kilometragem de ${km}`
+}
+
+
+console.log(ShowKm(NewTruck.km))
+
+
+
+
