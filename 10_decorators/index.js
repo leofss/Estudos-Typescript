@@ -52,7 +52,7 @@ User = __decorate([
     ClassDec
 ], User);
 const PrintUser = new User("Joao", 10);
-//4 - method decorator
+//3 - method decorator
 function Enumerable(value) {
     return function (target, propertKey, descriptor) {
         descriptor.enumerable = value;
@@ -72,3 +72,63 @@ __decorate([
 ], Machine.prototype, "ShowName", null);
 const Maq = new Machine("Fusca");
 console.log(Maq);
+//4 - property decorator
+//todo id precisa ser de 5 digitos 00001
+function FormatNumber() {
+    return function (target, propertKey) {
+        let value;
+        const getter = function () {
+            return value;
+        };
+        const setter = function (NewVal) {
+            value = NewVal.padStart(5, "0");
+        };
+        Object.defineProperty(target, propertKey, {
+            set: setter,
+            get: getter,
+        });
+    };
+}
+class ID {
+    constructor(id) {
+        this.id = id;
+    }
+}
+__decorate([
+    FormatNumber()
+], ID.prototype, "id", void 0);
+const NewItem = new ID("1");
+console.log(NewItem);
+//5 - exemplo real method decorator
+function CheckIfPosted() {
+    return function (target, propertKey, descriptor) {
+        //devolve a função post
+        const ChildFunction = descriptor.value;
+        console.log(ChildFunction);
+        descriptor.value = function (...args) {
+            if (args[1] === true) {
+                console.log("Usuário ja postou");
+                return null;
+            }
+            else {
+                return ChildFunction.apply(this, args);
+            }
+        };
+        return descriptor;
+    };
+}
+class Post {
+    constructor() {
+        this.Posted = false;
+    }
+    post(content, Posted) {
+        this.Posted = true;
+        console.log(`Post: ${content}`);
+    }
+}
+__decorate([
+    CheckIfPosted()
+], Post.prototype, "post", null);
+const NewPost = new Post();
+NewPost.post("Hello World", NewPost.Posted);
+NewPost.post("Hello Worldddd", NewPost.Posted); //retorna usuario ja postou
