@@ -64,3 +64,90 @@ class Aluno {
 }
 const leo = new Aluno("Leonardo", "Fernandes");
 console.log(leo.FullName);
+//7 = setters
+class Coords {
+    set FillX(x) {
+        if (x === 0) {
+            return;
+        }
+        else {
+            this.x = x;
+            console.log("X inserido com sucesso");
+        }
+    }
+    set FillY(y) {
+        if (y === 0) {
+            return;
+        }
+        else {
+            this.y = y;
+            console.log("Y inserido com sucesso");
+        }
+    }
+    get FullCoords() {
+        return `X: ${this.x} Y: ${this.y}`;
+    }
+}
+const MyCoords = new Coords();
+MyCoords.FillX = 10;
+MyCoords.FillY = 20;
+console.log(MyCoords);
+console.log((MyCoords.FullCoords));
+class BlogPost {
+    constructor(title) {
+        this.title = title;
+    }
+    ItemTitle() {
+        return `Tituelo do post é ${this.title}`;
+    }
+}
+const Post = new BlogPost("Hello World");
+console.log(Post.ItemTitle());
+//9 - PUBLIC
+class C {
+    constructor() {
+        this.x = 10;
+    }
+}
+const obj = new C;
+console.log(obj.x);
+//10 - protected
+//acessado apenas por meio de metodo
+class E {
+    constructor() {
+        this.y = 10;
+    }
+    PtdMTD() {
+        console.log("este metodo é protegido");
+    }
+}
+class F extends E {
+    showY() {
+        console.log(`Yy: ${this.y}`);
+    }
+    ShowPtdMtd() {
+        this.PtdMTD();
+    }
+}
+const Fins = new F();
+Fins.showY();
+Fins.ShowPtdMtd();
+//11 - private
+//extends nao funciona, apenas possível pela classe original
+class Priv {
+    constructor() {
+        this.name = "Privado";
+    }
+    ShowName() {
+        console.log(this.name);
+    }
+    PvtMtd() {
+        console.log("metodo privado");
+    }
+    ShowPvtMtd() {
+        this.PvtMtd();
+    }
+}
+const pObj = new Priv();
+pObj.ShowName();
+pObj.ShowPvtMtd();
