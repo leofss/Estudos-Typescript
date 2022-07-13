@@ -276,3 +276,36 @@ const NewObJ = new Para("camisa", 20)
 console.log(NewObJ)
 console.log(NewObJ.name)
 console.log(NewObJ.GetPrice)
+
+//17 - class expressions
+
+const MyClass = class<T>{
+    name
+
+    constructor(name : T){
+        this.name = name
+    }
+}
+
+const pessoa = new MyClass("Jones")
+
+console.log(pessoa.name)
+
+//18 - abstract class
+
+abstract class Abs {
+    abstract ShowName() : void
+}
+
+class AbsExe extends Abs{
+    name : string
+
+    constructor(name : string){
+        super()
+        this.name = name
+    }
+
+    ShowName(): void {
+        console.log(`nome: ${this.name}`)
+    }
+}

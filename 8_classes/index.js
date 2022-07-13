@@ -190,3 +190,23 @@ const NewObJ = new Para("camisa", 20);
 console.log(NewObJ);
 console.log(NewObJ.name);
 console.log(NewObJ.GetPrice);
+//17 - class expressions
+const MyClass = class {
+    constructor(name) {
+        this.name = name;
+    }
+};
+const pessoa = new MyClass("Jones");
+console.log(pessoa.name);
+//18 - abstract class
+class Abs {
+}
+class AbsExe extends Abs {
+    constructor(name) {
+        super();
+        this.name = name;
+    }
+    ShowName() {
+        console.log(`nome: ${this.name}`);
+    }
+}
