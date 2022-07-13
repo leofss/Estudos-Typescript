@@ -151,3 +151,42 @@ class Priv {
 const pObj = new Priv();
 pObj.ShowName();
 pObj.ShowPvtMtd();
+//12 - static members
+//usado mais para classe auxiliares 
+class StaticMembers {
+    static Method() {
+        console.log("Static metodo");
+    }
+}
+StaticMembers.prop = "Teste";
+console.log(StaticMembers.prop);
+StaticMembers.Method();
+//13 - generic class
+class item {
+    constructor(first, second) {
+        this.first = first;
+        this.second = second;
+    }
+    get FirstItem() {
+        return `first: ${this.first}`;
+    }
+}
+const newI = new item("caixa", "banana");
+console.log(newI);
+console.log(newI.FirstItem);
+//14 - Parameter prop
+class Para {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+        this.name = name;
+        this.price = price;
+    }
+    get GetPrice() {
+        return `Preço é ${this.price}`;
+    }
+}
+const NewObJ = new Para("camisa", 20);
+console.log(NewObJ);
+console.log(NewObJ.name);
+console.log(NewObJ.GetPrice);
